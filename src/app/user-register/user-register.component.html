@@ -1,0 +1,63 @@
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 pd-5">
+                <div class="card ">
+                    <form [formGroup]="userRegisterForm" (ngSubmit)="registerHandler()">
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xl-12">
+                                <h4 class="text-center">User Register</h4>
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-sx-12 pd-3">
+                                <div class="form-group">
+                                    <select class="form-select"  formControlName="userRole">
+                                        <option value="" selected disabled>Select your Role</option>
+                                        <option value="1">Admin</option>
+                                        <option value="2">User</option>
+                                    </select>
+                                </div>
+                                <div class="text-danger"
+                                    *ngIf="valid['userRole'].errors  && valid['userRole'].touched || formSubmit">
+                                    <p class="text-danger"
+                                        *ngIf="valid['userRole'].errors&&valid['userRole'].errors['required']">
+                                        Please select your role*</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 col-sm-12 col-sx-12 pd-3">
+                                <div class="example-container">
+                                    <input placeholder="User Name" name="user_name" formControlName="user_name"
+                                        class="form-control">
+                                </div>
+                                <div class="text-danger"
+                                    *ngIf="valid['user_name'].errors  && valid['user_name'].touched || formSubmit">
+                                    <p class="text-danger"
+                                        *ngIf="valid['user_name'].errors&&valid['user_name'].errors['required']">
+                                        Enter your user name*</p>
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-sx-12 pd-3">
+                                <div class="example-container">
+                                    <input placeholder="User Name" name="password" formControlName="password"
+                                        class="form-control" type="password">
+                                </div>
+                                <div class="text-danger"
+                                    *ngIf="valid['password'].errors  && valid['password'].touched || formSubmit">
+                                    <p class="text-danger"
+                                        *ngIf="valid['password'].errors&&valid['password'].errors['required']">
+                                        Enter your password*</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12 col-sx-12 pd-3">
+                                <button class="btn btn-primary">Submit</button>
+                            </div>
+                            <div class="col-md-6 col-sm-12 col-sx 12">
+                                <a class="nav-link" [routerLink]="['']"> Already have an account</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

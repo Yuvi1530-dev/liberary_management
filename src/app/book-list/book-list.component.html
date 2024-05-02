@@ -1,0 +1,44 @@
+<section class="padd_5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 font_bld">
+                Book List
+            </div>
+         <div class="col-md-12">
+            <table class="table table-bordered border-primary" >
+                <thead>
+                    <tr>
+                        <td>Id</td>
+                        <td>Title</td>
+                        <td>Status</td>
+                        <td>No Times Borrowed</td>
+                        <td>Action</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let data of BookDetails ; let index = index">
+                        <td>{{data.id}}</td>
+                        <td>{{data.title}}</td>
+                        <td>
+                            <p class="text-success" *ngIf="data.n_status==1">Active</p>
+                            <p class="text-danger" *ngIf="data.n_status==2">In Active</p>
+                        </td>
+                        <td>{{data.total_borrowed_by}}</td>
+                        <td>
+                            <div class="dpl_gp">
+                                <button class="btn btn-primary" (click)="bookEdit(data.id)" *ngIf="userType=='Admin'">Edit</button>
+                                <button class="btn btn-danger" (click)="deleteBook(data.id,1)" *ngIf="data.n_status!=2 && userType=='Admin'">Delete</button>
+                                <button class="btn btn-info" (click)="deleteBook(data.id,2)" *ngIf="data.n_status==2 && userType=='Admin'">Activate</button>
+                                <button class="btn btn-success" (click)="borrowBook(data.id)" *ngIf="data.borrowed_status==0 && userType=='User'"> Boorow Book</button>
+                                <button class="btn btn-success" (click)="returnBook(data.id)" *ngIf="data.borrowed_status==1 && data.user_id_borrowed==user_id"> Return Book</button>
+
+                            </div>
+                        </td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+         </div>
+        </div>
+    </div>
+</section>

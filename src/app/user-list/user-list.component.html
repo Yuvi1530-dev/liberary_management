@@ -1,0 +1,47 @@
+<section class="padd_5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 font_bld">
+                User List
+            </div>
+            <div class="col-md-12">
+                <table class="table table-bordered border-primary">
+                    <thead>
+                        <tr>
+                            <td>Id</td>
+                            <td>User Name</td>
+                            <td>Status</td>
+                            <td>Total Borrowed Books</td>
+                            <td>Action</td>
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="user_list.length!=0">
+                        <tr *ngFor="let data of user_list ; let index = index">
+                            <td>{{data.id}}</td>
+                            <td>{{data.user_name}}</td>
+                            <td>
+                                <p class="text-success" *ngIf="data.n_status==1">Active</p>
+                                <p class="text-danger" *ngIf="data.n_status==2">In Active</p>
+                            </td>
+                            <td>{{data.total_borrowed}}</td>
+                            <td>
+                                <div class="dpl_gp">
+                                    <button class="btn btn-danger"
+                                        (click)="confirMation(data.id,1)" *ngIf="data.n_status!=2">Delete</button>
+                                        <button class="btn btn-info"
+                                        (click)="confirMation(data.id,2)" *ngIf="data.n_status==2">Activate</button>
+                                </div>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                    <tbody *ngIf="user_list.length==0">
+                        <tr>
+                            <td colspan="5" class="text-center">No Data Found</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>

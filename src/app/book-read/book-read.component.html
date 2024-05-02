@@ -1,0 +1,27 @@
+<section>
+    <div class="container">
+      
+        <div class="row mr-9">
+            <div class="description">
+                Book Description
+            </div>
+            <div class="card padd_10" *ngFor="let data of bookRead">
+                <div class="card-header rm_bg_al_cn pos_relative">
+                    <div>
+                        <h5 class="pos_abs">{{data.title}}</h5>
+                    </div>
+                </div>
+                <div class="card-body desc">
+                    {{data.description}}
+                </div>
+                <div class="card-footer rm_bg_al_cn gap">
+              <div class="author font_800">Author Name :<span>{{data.author}}</span></div>
+              <div class="publication_year font_800">Publication Year :<span>{{data.publication_year}}</span></div>
+              <div class="isbn font_800">ISBN Number :<span>{{data.isbn}}</span></div>
+                    <!-- <div>{{data.publication_year}}</div> -->
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,43 @@
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 pd-5">
+                <div class="card ">
+                    <form [formGroup]="loginForm" (ngSubmit)="loginHandler()">
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xl-12">
+                                <h4 class="text-center">Login</h4>
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-sx-12 pd-3">
+                                <div class="example-container">
+                                    <input placeholder="User Name" name="user_name" formControlName="user_name"
+                                        class="form-control">
+                                </div>
+                                <div class="text-danger" *ngIf="formValid['user_name'].errors  && formValid['user_name'].touched || formSubmit">
+                                    <p class="text-danger" *ngIf="formValid['user_name'].errors&&formValid['user_name'].errors['required']">
+                                        Enter your user name*</p>
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-sx-12 pd-3">
+                                <div class="example-container">
+                                    <input placeholder="User Name" name="password" formControlName="password"
+                                        class="form-control" type="password">
+                                </div>
+                                <div class="text-danger" *ngIf="formValid['password'].errors  && formValid['password'].touched || formSubmit">
+                                    <p class="text-danger" *ngIf="formValid['password'].errors&&formValid['password'].errors['required']">
+                                        Enter your password*</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12 col-sx-12 pd-3">
+                                <button class="btn btn-primary" >Submit</button>
+                            </div>
+                            <div class="col-md-6 col-sm-12 col-sx 12">
+                               <a class="nav-link"  [routerLink]="['register']"> Create New Account</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
